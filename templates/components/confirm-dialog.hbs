@@ -1,0 +1,27 @@
+<div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-{{type}}">
+        {{#if options.showCloseButton}}
+        <button type="button" {{action "noAction"}} class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+        {{/if}}
+        <h4 class="modal-title">{{{options.title}}}</h4>
+      </div>
+      <div class="modal-body">
+        {{#if hasBlock}}
+          {{yield}}
+        {{else}}
+          <p>{{{options.body}}}</p>
+        {{/if}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" {{action "yesAction"}} class="btn btn-success" data-dismiss="{{if options.autoCloseOnYes 'modal' ''}}">{{{options.buttons.ok.text}}}</button>
+        <button type="button" {{action "noAction"}} class="btn btn-default" data-dismiss="{{if options.autoCloseOnNo 'modal' ''}}">{{{options.buttons.cancel.text}}}</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
